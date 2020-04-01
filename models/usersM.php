@@ -2,7 +2,7 @@
 
 require_once CLASSES . DS . 'db.php';
 
-class usersModel
+class UsersModel
 {
 
     public function construct()
@@ -11,13 +11,12 @@ class usersModel
 
     public function verifyUser($login, $passe)
     {
-
-        $sql = "SELECT nom,prenom,status
-      FROM utilisateur
-      WHERE login='$login' 
-      AND mdp = $passe
-      AND status IS NOT NULL
-      ";
+        $sql = "    SELECT nom,prenom,status
+                    FROM utilisateur
+                    WHERE login='$login' 
+                    AND mdp = $passe
+                    AND status IS NOT NULL
+                 ";
         try {
             $req = Database::getBdd()->prepare($sql);
             $req->execute();
@@ -27,18 +26,60 @@ class usersModel
             die();
         }
     }
-    public function listOne($id)
+    public function listAllUsers()
     {
-        $sql = 'select E.*, C.*,E.Title as ETitle, C.Title as CTitle, EM.Title as EMTitle, CM.Title as CMTitle, CM.FirstName as CMFirstName, CM.MiddleName as CMMiddleName, CM.LastName as CMLastName
-      from employee as E
-      inner join contact as C on E.ContactID=C.ContactID
-      left join employee as EM on E.ManagerID=EM.EmployeeID
-      left join contact as CM on EM.ContactID=CM.ContactID
-      where E.EmployeeID=:id';
+        $sql = "    SELECT *
+                    FROM utilisateur
+                ";
         try {
             $req = Database::getBdd()->prepare($sql);
             $req->execute();
-            return $req->fetch();
+            return $req->fetchAll();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    public function listInvalideUsers()
+    {
+        $sql = "    SELECT *
+                    FROM utilisateur
+                    WHERE status IS NULL
+                ";
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetchAll();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    public function listValideUsers()
+    {
+        $sql = "    SELECT *
+                    FROM utilisateur
+                    WHERE status IS NOT NULL
+                ";
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetchAll();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    public function listCommUsers()
+    {
+        $sql = "    SELECT *
+                    FROM utilisateur
+                    WHERE status ='com'
+                ";
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetchAll();
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage() . "<br/>";
             die();

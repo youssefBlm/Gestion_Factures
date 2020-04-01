@@ -4,9 +4,9 @@ if (isset($_POST['log'])) {
 	session_start();
 	$_SESSION['Login'] = $_POST['login'];
 	$_SESSION['passe'] = $_POST['passe'];
-	define('ROOTLOG', str_replace("views/users/login.php", "", $_SERVER["SCRIPT_NAME"]));
+	define('ROOTLOG', str_replace("views/login/login.php", "", $_SERVER["SCRIPT_NAME"]));
 	
-	header("Location:".ROOTLOG."index.php?c=users&m=login");
+	header("Location:".ROOTLOG."index.php?c=login&m=login");
 }
 
 if(isset($_GET['msg'])){

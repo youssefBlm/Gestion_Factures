@@ -5,7 +5,7 @@ if (!isset($_SESSION["Loged"])) {
   
     echo '<center><font color="red" size="4"><b>Vous devez vous connecter pour accèder à la page </center></font><br />';
   echo VIEWS."";
-    header("Location:views/users/login.php");
+    header("Location:views/login/login.php");
     exit;
 }
 ?>
@@ -43,21 +43,21 @@ if (!isset($_SESSION["Loged"])) {
    <!-- Nav Item - Pages Collapse Menu -->
    <li class="nav-item">
      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseTwo">
-       <i class="fas fa-user-alt"></i>
-       <span>Gestion d'utilisateurs</span>
+       <i style="color:yellow" class="fas fa-user-alt"></i>
+       <span>Gestion des utilisateurs</span>
      </a>
      <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="index.php?c=employee&m=list">utilisateurs non valides</a>
-         <a class="collapse-item" href="/AppMvc/tasks/index">utilisateurs commerçants</a>
-         <a class="collapse-item" href="/AppMvc/tasks/reglageLangue">utilisateurs valides</a>
-         <a class="collapse-item" href="/AppMvc/tasks/reglageLangue">tous les utilisateurs</a>
+         <a class="collapse-item" href="index.php?c=users&m=listOfInvalideUsers">Utilisateurs non valides</a>
+         <a class="collapse-item" href="index.php?c=users&m=listOfCommUsers">Utilisateurs commerçants</a>
+         <a class="collapse-item" href="index.php?c=users&m=listOfValideUsers">Utilisateurs valides</a>
+         <a class="collapse-item" href="index.php?c=users&m=listOfUsers">Liste des utilisateurs</a>
        </div>
      </div>
    </li>
-
 <?php }?>
+
    <li class="nav-item">
      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
        <i class="fas fa-user-alt"></i>
