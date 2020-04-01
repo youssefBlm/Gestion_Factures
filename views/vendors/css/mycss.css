@@ -1,0 +1,8 @@
+.sectionTable td img{
+    max-width:20px;
+  }
+  .sectionTable {
+    width:70%;
+    margin-top:20%;
+    margin-left:10%;
+  }
