@@ -39,22 +39,25 @@ if (!isset($_SESSION["Loged"])) {
    <div class="sidebar-heading">
      Interface
    </div>
-
+<?php if ($_SESSION['status']=="admin") {?>
    <!-- Nav Item - Pages Collapse Menu -->
    <li class="nav-item">
-     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true" aria-controls="collapseTwo">
        <i class="fas fa-user-alt"></i>
-       <span>utilisateurs</span>
+       <span>Gestion d'utilisateurs</span>
      </a>
-     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+     <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="index.php?c=employee&m=list">lol4</a>
-         <a class="collapse-item" href="/AppMvc/tasks/index">lolo</a>
-         <a class="collapse-item" href="/AppMvc/tasks/reglageLangue">lklkl</a>
+         <a class="collapse-item" href="index.php?c=employee&m=list">utilisateurs non valides</a>
+         <a class="collapse-item" href="/AppMvc/tasks/index">utilisateurs commerçants</a>
+         <a class="collapse-item" href="/AppMvc/tasks/reglageLangue">utilisateurs valides</a>
+         <a class="collapse-item" href="/AppMvc/tasks/reglageLangue">tous les utilisateurs</a>
        </div>
      </div>
    </li>
+
+<?php }?>
    <li class="nav-item">
      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
        <i class="fas fa-user-alt"></i>

@@ -36,7 +36,7 @@ class UsersController
             $_SESSION['Loged']=true;
             $_SESSION['nom']=$user['nom'];
             $_SESSION['prenom']=$user['prenom'];
-        
+            $_SESSION['status']=$user['status'];        
             require_once CLASSES . DS . 'view.php';
             $v = new View();
             $v->render('home','index');}

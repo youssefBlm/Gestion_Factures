@@ -12,11 +12,11 @@ class usersModel
     public function verifyUser($login, $passe)
     {
 
-        $sql = "SELECT nom,prenom
+        $sql = "SELECT nom,prenom,status
       FROM utilisateur
       WHERE login='$login' 
       AND mdp = $passe
-      AND status ='valide'
+      AND status IS NOT NULL
       ";
         try {
             $req = Database::getBdd()->prepare($sql);
