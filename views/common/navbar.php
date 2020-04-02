@@ -26,7 +26,7 @@ if (!isset($_SESSION["Loged"])) {
 
    <!-- Nav Item - Dashboard -->
    <li class="nav-item active">
-     <a class="nav-link" href="index">
+     <a class="nav-link" href="index.php">
      <i class="fas fa-home"></i>
       
        <span>Acceuil</span></a>
