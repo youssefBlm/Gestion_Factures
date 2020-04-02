@@ -13,5 +13,11 @@ class Database
         }
         return self::$bdd;
     }
+    public static function createBdd() {
+        if(is_null(self::$bdd)) {
+            self::$bdd = new PDO("mysql:host=localhost", 'root', 'sirine');
+        }
+        return self::$bdd;
+    }
 }
 ?>
