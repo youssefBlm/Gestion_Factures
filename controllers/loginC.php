@@ -5,7 +5,7 @@ class loginController
     {
     }
 
-    public function list()
+    public function liste()
     {
         require_once MODELS . DS . 'employeeM.php';
         $m = new EmployeeModel();

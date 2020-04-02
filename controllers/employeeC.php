@@ -3,9 +3,9 @@ class EmployeeController {
     public function construct(){}
 
     public function index() {
-      $this->list();
+      $this->liste();
     }
-    public function list(){
+    public function liste(){
       require_once MODELS.DS.'employeeM.php';
       $m=New EmployeeModel();
       $employees=$m->listAll();
