@@ -46,14 +46,16 @@ class loginController
         require_once MODELS . DS . 'bddM.php';
         $m = new bddModel();
         if (isset($_SESSION['structure'])) {
+
             echo "instalation<br>";
-            $val = $m->creatBdd("../classes/fichier.sql");
+            $val = $m->createBdd('sql/facture_DB_structure.sql');
             unset($_SESSION['structure']);
         } else
             echo "no structure<br>";
 
         if (isset($_SESSION['data'])) {
             echo "data<br>";
+            $val = $m->insertData('sql/facture_DB_DATA.sql');
             unset($_SESSION['dataF']);
         } else
             echo "no data<br>";

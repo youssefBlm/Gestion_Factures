@@ -9,11 +9,11 @@ class Database
 
     public static function getBdd() {
         if(is_null(self::$bdd)) {
-            self::$bdd = new PDO("mysql:host=localhost;dbname=facture_db", 'root', '');
+            self::$bdd = new PDO("mysql:host=localhost;dbname=facture_db", 'root', 'sirine');
         }
         return self::$bdd;
     }
-    public static function createBdd() {
+    public static function newBdd() {
         if(is_null(self::$bdd)) {
             self::$bdd = new PDO("mysql:host=localhost", 'root', 'sirine');
         }

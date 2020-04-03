@@ -9,25 +9,58 @@ class BddModel
     {
     }
 
-    public function creatBdd($filesql)
+    public function createBdd($filesql)
     {
-        echo $filesql."<br>";
-        echo $_SERVER["SCRIPT_NAME"];
-        $query = file_get_contents('fichier.sql');
+        try {
+            Database::getBdd();
+            echo "votre base exist deja";
+        } catch (PDOException $e) {
+
+            $query = file_get_contents($filesql);
+            $array = explode(";", $query);
+
+            $b = true;
+            for ($i = 0; $i < count($array); $i++) {
+                $str = $array[$i];
+                if ($str != '') {
+                    try {
+                        $req = Database::newBdd()->prepare($str);
+                        $req->execute();
+                    } catch (PDOException $e) {
+                        print "Erreur !: " . $e->getMessage() . "<br/>";
+                        die();
+                    }
+                }
+            }
+            echo "every things structure is done";
+        }
+    }
+    public function insertData($filesql)
+    {
+        try {
+            Database::getBdd();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+
         
-    $array = explode(";\n", $query);
-    var_dump( $array);
-   /* $b = true;
-    for ($i=0; $i < count($array) ; $i++) {
-        $str = $array[$i];
-        if ($str != '') {
-            echo $str;
-             $str .= ';';
-             $b &= mysql_query($str);  
-        }  
+        $query = file_get_contents($filesql);
+        $array = explode(";", $query);
+
+        $b = true;
+        for ($i = 0; $i < count($array); $i++) {
+            $str = $array[$i];
+            if ($str != '') {
+                try {
+                    $req = Database::newBdd()->prepare($str);
+                    $req->execute();
+                } catch (PDOException $e) {
+                    print "Erreur !: " . $e->getMessage() . "<br/>";
+                    die();
+                }
+            }
+        }
+        echo "every things data is done";
     }
-     
-    return $b;*/
-    }
-    
 }
