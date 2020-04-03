@@ -11,19 +11,23 @@ class BddModel
 
     public function creatBdd($filesql)
     {
-        $query = file_get_contents($filesql);
+        echo $filesql."<br>";
+        echo $_SERVER["SCRIPT_NAME"];
+        $query = file_get_contents('fichier.sql');
+        
     $array = explode(";\n", $query);
-    $b = true;
+    var_dump( $array);
+   /* $b = true;
     for ($i=0; $i < count($array) ; $i++) {
         $str = $array[$i];
         if ($str != '') {
             echo $str;
-            /* $str .= ';';
-             $b &= mysql_query($str);  */
+             $str .= ';';
+             $b &= mysql_query($str);  
         }  
     }
      
-    return $b;
+    return $b;*/
     }
     
 }
