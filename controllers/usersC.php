@@ -26,7 +26,6 @@ class UsersController
         $v = new View();
         $v->setVar('userslist', $users);
         $v->render('users', 'listUsers');
-        
     }
     public function listOfValideUsers()
     {
@@ -38,7 +37,6 @@ class UsersController
         $v = new View();
         $v->setVar('userslist', $users);
         $v->render('users', 'listUsers');
-        
     }
     public function listOfCommUsers()
     {
@@ -50,7 +48,37 @@ class UsersController
         $v = new View();
         $v->setVar('userslist', $users);
         $v->render('users', 'listUsers');
-        
     }
-      
+
+    public function editUser($id = null)
+    {
+
+
+        if (isset($_POST['id'])) {
+            $user = new stdClass();
+            $user->id = $_POST['id'];
+            $user->nom = $_POST['nom'];
+            $user->prenom = $_POST['prenom'];
+            $user->login = $_POST['login'];
+            $user->mail = $_POST['mail'];
+            $user->status = $_POST['status']; 
+
+            require_once MODELS . DS . 'usersM.php';
+            $m = new UsersModel();
+            $users = $m->updateUsers($user);
+            $this->listOfUsers();
+
+        } else {
+            require_once MODELS . DS . 'usersM.php';
+            $m = new UsersModel();
+            require_once CLASSES . DS . 'view.php';
+            $v = new View();
+            if ($user = $m->getOneUser($id))
+                //  var_dump($user);
+                $v->setVar('user', $user);
+            //redirection vers employee_edit.php
+            //formulaire
+            $v->render('users', 'editUser');
+        }
+    }
 }

@@ -85,4 +85,36 @@ class UsersModel
             die();
         }
     }
+
+    public function getOneUser($id)
+    {
+        $sql = "    SELECT *
+                    FROM utilisateur
+                    WHERE idUtilisateur =$id
+                ";
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetch();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+
+    public function updateUsers($user)
+    {
+        $sql = "    UPDATE utilisateur 
+                    SET nom='$user->nom', prenom='$user->prenom', login='$user->login',
+                     e_mail='$user->mail', status='$user->status' 
+                    WHERE idUtilisateur='$user->id'
+                ";
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            return $req->execute();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
 }

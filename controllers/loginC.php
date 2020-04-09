@@ -30,7 +30,7 @@ class loginController
             // redirection vers header avec un msg d'erreur
             $msg = "nta hmar";
 
-            header("Location:views/users/login.php?msg=" . $msg);
+            header("Location:views/login/login.php?msg=" . $msg);
         } else {
             $_SESSION['Loged'] = true;
             $_SESSION['nom'] = $user['nom'];
