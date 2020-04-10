@@ -49,11 +49,31 @@ class UsersController
         $v->setVar('userslist', $users);
         $v->render('users', 'listUsers');
     }
+    public function addUser()
+    {
+        if (isset($_POST['login']) && isset($_POST['mdp'])) {
+            $user = new stdClass();
+            $user->nom = $_POST['nom'];
+            $user->prenom = $_POST['prenom'];
+            $user->login = $_POST['login'];
+            $user->mdp = $_POST['mdp'];
+            $user->mail = $_POST['mail'];
+            if ($_POST['status'] != "NULL")    $user->status = $_POST['status'];
+
+            require_once MODELS . DS . 'usersM.php';
+            $m = new UsersModel();
+            $users = $m->insertUser($user);
+            $this->listOfUsers();
+        } else {
+            //echo "entrer le login et mdp obligatoirement";
+            require_once CLASSES . DS . 'view.php';
+            $v = new View();
+            $v->render('users', 'addUser');
+        }
+    }
 
     public function editUser($id = null)
     {
-
-
         if (isset($_POST['id'])) {
             $user = new stdClass();
             $user->id = $_POST['id'];
@@ -61,13 +81,12 @@ class UsersController
             $user->prenom = $_POST['prenom'];
             $user->login = $_POST['login'];
             $user->mail = $_POST['mail'];
-            $user->status = $_POST['status']; 
+            if ($_POST['status'] != "NULL") $user->status = $_POST['status'];
 
             require_once MODELS . DS . 'usersM.php';
             $m = new UsersModel();
             $users = $m->updateUsers($user);
             $this->listOfUsers();
-
         } else {
             require_once MODELS . DS . 'usersM.php';
             $m = new UsersModel();
@@ -80,5 +99,12 @@ class UsersController
             //formulaire
             $v->render('users', 'editUser');
         }
+    }
+    public function deleteUser($id)
+    {
+        require_once MODELS . DS . 'usersM.php';
+        $m = new UsersModel();
+        $user = $m->deleteUsers($id);
+        $this->listOfUsers();
     }
 }

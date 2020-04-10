@@ -1,8 +1,3 @@
-<?php
-
-session_destroy();
-?>
-
 <main role="main" class="container">
     <div class="starter-template">
       <h1>Affichage de la liste des employés</h1>

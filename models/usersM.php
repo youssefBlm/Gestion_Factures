@@ -101,13 +101,55 @@ class UsersModel
             die();
         }
     }
-
+    public function insertUser($user)
+    {
+        if (isset($user->status))
+            $sql = "    INSERT INTO utilisateur (nom, prenom, login, mdp, e_mail, status) 
+                        VALUES ('$user->nom','$user->prenom','$user->login',
+                        '$user->mdp','$user->mail','$user->status')
+                    ";
+        else
+            $sql = "    INSERT INTO utilisateur (nom, prenom, login, mdp, e_mail) 
+                        VALUES ('$user->nom','$user->prenom','$user->login',
+                        '$user->mdp','$user->mail')
+                    ";
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            return $req->execute();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
     public function updateUsers($user)
     {
+        if (isset($user->status))
         $sql = "    UPDATE utilisateur 
                     SET nom='$user->nom', prenom='$user->prenom', login='$user->login',
                      e_mail='$user->mail', status='$user->status' 
                     WHERE idUtilisateur='$user->id'
+                ";
+                else 
+        $sql = "    UPDATE utilisateur 
+                    SET nom='$user->nom', prenom='$user->prenom', login='$user->login',
+                    e_mail='$user->mail'
+                    WHERE idUtilisateur='$user->id'
+            ";    
+
+
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            return $req->execute();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    public function deleteUsers($id)
+    {
+        $sql = "    DELETE
+                    FROM utilisateur
+                    WHERE idUtilisateur =$id  
                 ";
         try {
             $req = Database::getBdd()->prepare($sql);

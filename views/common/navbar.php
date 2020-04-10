@@ -49,6 +49,7 @@ if (!isset($_SESSION["Loged"])) {
      <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
+         <a class="collapse-item" href="index.php?c=users&m=addUser">Ajouter un Utilisateur</a>
          <a class="collapse-item" href="index.php?c=users&m=listOfInvalideUsers">Utilisateurs non valides</a>
          <a class="collapse-item" href="index.php?c=users&m=listOfCommUsers">Utilisateurs commerçants</a>
          <a class="collapse-item" href="index.php?c=users&m=listOfValideUsers">Utilisateurs valides</a>
@@ -60,15 +61,14 @@ if (!isset($_SESSION["Loged"])) {
 
    <li class="nav-item">
      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-       <i class="fas fa-user-alt"></i>
-       <span>kjhkjh</span>
+     <i class="fas fa-address-book"></i>
+       <span>Gestion des Clients</span>
      </a>
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="index.php?c=employee&m=liste">lol4</a>
-         <a class="collapse-item" href="/AppMvc/tasks/index">lolo</a>
-         <a class="collapse-item" href="/AppMvc/tasks/reglageLangue">lklkl</a>
+         <a class="collapse-item" href="index.php?c=employee&m=liste">Ajouter un client</a>
+         <a class="collapse-item" href="/AppMvc/tasks/index">Liste des clients</a>
        </div>
      </div>
    </li>
@@ -123,9 +123,9 @@ if (!isset($_SESSION["Loged"])) {
 
    <!-- Nav Item - Tables -->
    <li class="nav-item">
-     <a class="nav-link" href="tables.html">
-       <i class="fas fa-fw fa-table"></i>
-       <span>Tables</span></a>
+     <a class="nav-link" href="index.php?c=login&m=logout">
+     <i style="color:black" class="fas fa-sign-out-alt"></i>
+       <span>Déconnexion</span></a>
    </li>
 
    <!-- Divider -->

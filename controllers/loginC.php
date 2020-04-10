@@ -60,4 +60,10 @@ class loginController
         } else
             echo "no data<br>";
     }
+    public function logout()
+    {
+        session_destroy();
+        header("Location:views/login/login.php");
+        
+    }
 }

@@ -39,7 +39,7 @@
     
         <td><?php if (isset($user['idUtilisateur'])) echo '<a href="index.php?c=employee&m=view&id='.$user['idUtilisateur'].'" data-toggle="tooltip" title="Voir" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>';?></td>
         <td><?php if (isset($user['idUtilisateur'])) echo '<a href="index.php?c=users&m=editUser&id='.$user['idUtilisateur'].'" data-toggle="tooltip" title="Modifier" class="btn btn-warning  btn-sm"><i class="fas fa-edit"></i></a>';?></td>
-        <td><?php if (isset($user['idUtilisateur'])) echo '<a href="index.php?c=employee&m=delete&id='.$user['idUtilisateur'].'" data-toggle="tooltip" title="Supprimer" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>';?></td>
+        <td><?php if (isset($user['idUtilisateur'])) echo '<a href="index.php?c=users&m=deleteUser&id='.$user['idUtilisateur'].'" data-toggle="tooltip" title="Supprimer" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>';?></td>
       </tr>
     <?php }?>
     </tbody>
