@@ -124,17 +124,17 @@ class UsersModel
     public function updateUsers($user)
     {
         if (isset($user->status))
-        $sql = "    UPDATE utilisateur 
+            $sql = "    UPDATE utilisateur 
                     SET nom='$user->nom', prenom='$user->prenom', login='$user->login',
                      e_mail='$user->mail', status='$user->status' 
                     WHERE idUtilisateur='$user->id'
                 ";
-                else 
-        $sql = "    UPDATE utilisateur 
+        else
+            $sql = "    UPDATE utilisateur 
                     SET nom='$user->nom', prenom='$user->prenom', login='$user->login',
                     e_mail='$user->mail'
                     WHERE idUtilisateur='$user->id'
-            ";    
+            ";
 
 
         try {

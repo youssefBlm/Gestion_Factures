@@ -67,8 +67,8 @@ if (!isset($_SESSION["Loged"])) {
      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="index.php?c=employee&m=liste">Ajouter un client</a>
-         <a class="collapse-item" href="/AppMvc/tasks/index">Liste des clients</a>
+         <a class="collapse-item" href="index.php?c=client&m=addClient">Ajouter un client</a>
+         <a class="collapse-item" href="index.php?c=client&m=listOfClients">Liste des clients</a>
        </div>
      </div>
    </li>
