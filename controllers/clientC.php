@@ -10,7 +10,7 @@ class ClientController
         require_once MODELS . DS . 'clientM.php';
         $m = new ClientModel();
         $clients = $m->getAllClients();
-        // Affichage au sein de la vue des données récupérées via le model
+
         require_once CLASSES . DS . 'view.php';
         $v = new View();
         $v->setVar('clientslist', $clients);
@@ -18,11 +18,11 @@ class ClientController
     }
     public function view($id = null)
     {
-        require_once MODELS . DS . 'employeeM.php';
-        $m = new EmployeeModel();
+        require_once MODELS . DS . 'clientM.php';
+        $m = new ClientModel();
         require_once CLASSES . DS . 'view.php';
         $v = new View();
-        if ($employee = $m->listOne($id)) $v->setVar('e', $employee);
+      //  if ($employee = $m->listOne($id)) $v->setVar('e', $employee);
         // Affichage au sein de la vue des données récupérées via le model
         $v->render('employee', 'view');
     }
@@ -40,8 +40,6 @@ class ClientController
             $client->addr = $_POST['addr'];
             $client->code = $_POST['postal'];
 
-
-
             require_once MODELS . DS . 'clientM.php';
             $m = new ClientModel();
 
@@ -55,8 +53,7 @@ class ClientController
             $v = new View();
             if ($codes = $m->getAllcodesP())
                 $v->setVar('codesPostaux', $codes);
-            //redirection vers employee_edit.php
-            //formulaire
+
             $v->render('clients', 'addClient');
         }
     }
