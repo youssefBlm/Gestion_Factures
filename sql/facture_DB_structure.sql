@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `Facture_DB`.`Solde_Article` (
   `lib_Solde` VARCHAR(100) NULL,
   `date_Debut_Solde` DATETIME NOT NULL,
   `date_Fin_Solde` DATETIME NULL,
-  `pourcentage` DECIMAL NOT NULL,
+  `pourcentage` DOUBLE NOT NULL,
   PRIMARY KEY (`idSolde_Article`))
 ENGINE = InnoDB;
 
@@ -123,8 +123,8 @@ CREATE TABLE IF NOT EXISTS `Facture_DB`.`Article` (
   `image_Article` BLOB NULL,
   `qte_Stock` INT NOT NULL,
   `date_Ajout` DATE NOT NULL,
-  `prix_Unitaire_HT` DECIMAL NOT NULL,
-  `montant_TVA` DECIMAL NOT NULL,
+  `prix_Unitaire_HT` DOUBLE NOT NULL,
+  `montant_TVA` DOUBLE NOT NULL,
   `idMarque` INT NOT NULL,
   `idSous_Categorie` INT NULL,
   `idSolde_Article` INT NULL,
@@ -202,8 +202,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Facture_DB`.`Remise` (
   `idRemise` INT NOT NULL AUTO_INCREMENT,
   `lib_Remise` VARCHAR(60) NULL,
+  `code_Remise` VARCHAR(10) NOT NULL,
   `date_debut_Remise` DATE NULL,
   `date_Fin_Remise` DATE NULL,
+  `pourcentage` DOUBLE NOT NULL,
   PRIMARY KEY (`idRemise`))
 ENGINE = InnoDB;
 
@@ -353,8 +355,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Facture_DB`.`Aticle_Livraison` (
   `idAticle_Livraison` INT NOT NULL AUTO_INCREMENT,
-  `montant_TVA` DECIMAL NOT NULL,
-  `montant_Livraison_HT` DECIMAL NULL,
+  `montant_TVA` DOUBLE NOT NULL,
+  `montant_Livraison_HT` DOUBLE NULL,
   `idArticle` INT NOT NULL,
   PRIMARY KEY (`idAticle_Livraison`, `idArticle`),
   INDEX `fk_Aticle_Livraison_Article1_idx` (`idArticle` ASC) ,
