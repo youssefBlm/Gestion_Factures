@@ -37,7 +37,7 @@
             <td><?php if (isset($produit['qte_Stock'])) echo $produit['qte_Stock']; ?></td>
             <td><?php if (isset($produit['TVA'])) echo $produit['TVA'] . "%"; ?></td>
             <td><?php if (isset($produit['prix_Unitaire_HT'])) echo $produit['prix_uni_TTC']."€"; ?></td>
-            <td><?php if (isset($produit['solde'])&&$produit['solde']>0) echo $produit['solde']. "%";else echo "NON"; ?></td>
+            <td><?php if (isset($produit['solde'])&&$produit['solde']>0) echo "- ".$produit['solde']. "%";else echo "NON"; ?></td>
             <td><?php if (isset($produit['prix_TTC'])) echo $produit['prix_TTC']."€"; ?></td>
 
             <td><?php if (isset($produit['idArticle'])) echo '<a href="index.php?c=employee&m=view&id=' . $produit['idArticle'] . '" data-toggle="tooltip" title="Voir" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>'; ?></td>

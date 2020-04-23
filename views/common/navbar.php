@@ -82,9 +82,9 @@ if (!isset($_SESSION["Loged"])) {
      <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="/AppMvc/intervention/createInterv">lol</a>
-         <a class="collapse-item" href="index.php?c=produit&m=listOfProduits">lol2</a>
-         <a class="collapse-item" href="utilities-border.html">Autre opération</a>
+         <a class="collapse-item" href="index.php?c=produit&m=listOfProduits">Ajouter un produit</a>
+         <a class="collapse-item" href="index.php?c=produit&m=listOfProduits">Liste des produits</a>
+        
        </div>
      </div>
    </li>
@@ -98,9 +98,8 @@ if (!isset($_SESSION["Loged"])) {
      <div id="collapseArchive" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="/AppMvc/archive/listInterventionValide">Liste des Interventions</a>
-
-
+         <a class="collapse-item" href="index.php?c=produit&m=listOfProduits">Ajouter une commande</a>
+         <a class="collapse-item" href="index.php?c=produit&m=listOfProduits">Liste des commandes</a>
        </div>
      </div>
    </li>
