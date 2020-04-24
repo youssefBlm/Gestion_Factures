@@ -2,41 +2,20 @@
 
 require_once CLASSES . DS . 'db.php';
 
-class ProduitModel
+class CommandeModel
 {
     public function construct()
     {
     }
 
-    public function getAllProduits()
+    public function getAllCommandes()
     {
-        $sql = "    SELECT 	*
-                    FROM article AS a
-                    INNER JOIN 	solde_article AS sa ON sa.idSolde_Article = a.idSolde_Article
-                    INNER JOIN 	marque AS m ON m.idMarque = a.idMarque
+        $sql = "    SELECT *
+                    FROM client AS c
+                    INNER JOIN 	adresse AS a ON c.idAdresse = a.idAdresse
+                    INNER JOIN 	codepostale_ville AS cv ON a.CodePostale = cv.CodePostale
                                        
                 ";
-        try {
-            $req = Database::getBdd()->prepare($sql);
-            $req->execute();
-            return $req->fetchAll();
-        } catch (PDOException $e) {
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
-        }
-    }
-
-    public function getPanier($m)
-    {
-       
-        $sql = "    SELECT 	*
-                    FROM article AS a
-                    INNER JOIN 	solde_article AS sa ON sa.idSolde_Article = a.idSolde_Article
-                    INNER JOIN 	marque AS m ON m.idMarque = a.idMarque
-                    WHERE a.idArticle IN (".implode(',',$m).")
-                                       
-                ";
-       
         try {
             $req = Database::getBdd()->prepare($sql);
             $req->execute();
@@ -79,7 +58,7 @@ class ProduitModel
             die();
         }
     }
-    public function insertClient($client)
+    public function insertCommande($client)
     {
         $sql = "    INSERT INTO client(nom, prenom, numero_Tel, e_mail, sexe, date_Naissance, idAdresse)
                     VALUES ('$client->nom','$client->prenom','$client->numero',

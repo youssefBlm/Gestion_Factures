@@ -98,7 +98,7 @@ if (!isset($_SESSION["Loged"])) {
      <div id="collapseArchive" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="index.php?c=produit&m=listOfProduits">Ajouter une commande</a>
+         <a class="collapse-item" href="index.php?c=commande&m=addCommande">Ajouter une commande</a>
          <a class="collapse-item" href="index.php?c=produit&m=listOfProduits">Liste des commandes</a>
        </div>
      </div>

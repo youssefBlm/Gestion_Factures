@@ -22,7 +22,7 @@ class ProduitController
         $m = new produitModel();
         require_once CLASSES . DS . 'view.php';
         $v = new View();
-        if ($employee = $m->listOne($id)) $v->setVar('e', $employee);
+       // if ($employee = $m->listOne($id)) $v->setVar('e', $employee);
         // Affichage au sein de la vue des données récupérées via le model
         $v->render('employee', 'view');
     }
@@ -44,7 +44,7 @@ class ProduitController
             $m = new produitModel();
 
             $produit->idAdresse = $m->insertadresse($produit->addr, $produit->code);
-            $produits = $m->insertproduit($produit);
+          //  $produits = $m->insertproduit($produit);
             $this->listOfproduits();
         } else {
             require_once MODELS . DS . 'produitM.php';
