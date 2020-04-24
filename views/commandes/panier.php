@@ -3,10 +3,10 @@
         <br>
         <h1>Mon Panier</h1>
     </div>
-    
+
 
     <div class="float-right">
-    <a href="index.php?c=commande&m=addCommande" class="btn btn-info ">Ajouter d'autres produits</a>
+        <a href="index.php?c=commande&m=addCommande" class="btn btn-info ">Ajouter d'autres produits</a>
     </div><br><br><br>
     <div class="row">
         <table class="table table-sm">
@@ -43,15 +43,16 @@
                         <td><?php if (isset($produits[$prod - 1]['prix_TTC'])) echo $produits[$prod - 1]['prix_TTC'] . "€"; ?></td>
 
                         <td><?php if (isset($produits[$prod - 1]['idArticle'])) echo '<a href="index.php?c=employee&m=view&id=' . $produits[$prod - 1]['idArticle'] . '" data-toggle="tooltip" title="Voir" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>'; ?></td>
-                        
+
                         <td><?php if (isset($produits[$prod - 1]['idArticle'])) echo '<a href="index.php?c=produitss&m=deleteproduits&id=' . $produits[$prod - 1]['idArticle'] . '" data-toggle="tooltip" title="Supprimer" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>'; ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
     </div>
-<br><br>
-<br><br>    <div >
-    <a href="index.php?c=commande&m=addCommande" class="btn btn-success ">Valider le panier</a>
+    <br><br>
+    <br><br>
+    <div>
+        <a href="index.php?c=commande&m=addCommande" class="btn btn-success ">Valider le panier</a>
     </div><br><br><br>
 </main><!-- /.container -->
