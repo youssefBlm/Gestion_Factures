@@ -111,7 +111,10 @@ if (!isset($_SESSION["Loged"])) {
      <div id="collapseArchie" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="/AppMvc/archive/listInterventionValide">Liste des Interventions</a>
+         <a class="collapse-item" href="index.php?c=commande&m=imprimeFacture">Ajouter un solde</a>
+         <a class="collapse-item" href="index.php?c=commande&m=imprimeFacture">Ajouter une remise</a>
+         <a class="collapse-item" href="index.php?c=commande&m=imprimeFacture">Liste des soldes</a>
+         <a class="collapse-item" href="index.php?c=commande&m=imprimeFacture">Liste des remises</a>
 
 
        </div>

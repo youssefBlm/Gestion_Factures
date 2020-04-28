@@ -78,6 +78,20 @@ class CommandeModel
         }
     }
    
+    public function insertFacture($commande)
+    {
+        $sql = "    INSERT INTO facture( numero_Commande)
+                    VALUES ('$commande')
+                    ";
+
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            return $req->execute();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
 
     public function insertCommande($commande)
     {
@@ -88,7 +102,9 @@ class CommandeModel
 
         try {
             $req = Database::getBdd()->prepare($sql);
-            return $req->execute();
+            $req->execute();
+            $this->insertFacture(Database::getBdd()->lastInsertId());
+            return;
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage() . "<br/>";
             die();
@@ -170,6 +186,81 @@ class CommandeModel
             $req = Database::getBdd()->prepare($sql);
             $req->execute();
             return Database::getBdd()->lastInsertId();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    public function getFournisseur()
+    {
+        $sql = "    SELECT 	*
+                    FROM fournisseur  AS f
+                    INNER JOIN 	adresse AS a ON f.idAdresse = a.idAdresse
+                    INNER JOIN 	codepostale_ville AS cv ON a.CodePostale = cv.CodePostale
+                    WHERE idFournisseur=1
+                    ";
+
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetch();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    public function getClientLastCommande()
+    {
+        $d =$this->getLastCommande();
+        $sql = "    SELECT 	*
+                    FROM client  AS c
+                    INNER JOIN 	adresse AS a ON c.idAdresse = a.idAdresse
+                    INNER JOIN 	codepostale_ville AS cv ON a.CodePostale = cv.CodePostale
+                    WHERE idClient=(SELECT idClient
+                    FROM commande  
+                    WHERE numero_Commande='$d')
+                    ";
+
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetch();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    public function getFacture()
+    {
+        $d =$this->getLastCommande();
+        $sql = "    SELECT 	*
+                    FROM facture  
+                    WHERE numero_Commande='$d'
+                    ";
+
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetch();
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+    public function getCommande()
+    {
+        $d =$this->getLastCommande();
+        $sql = "    SELECT 	*
+                    FROM commande AS c
+                    LEFT JOIN 	livraison AS l ON c.numero_Commande = l.numero_Commande
+                    INNER JOIN 	remise AS r ON c.idRemise = r.idRemise
+                    WHERE c.numero_Commande='$d'
+                ";
+
+        try {
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetch();
         } catch (PDOException $e) {
             print "Erreur !: " . $e->getMessage() . "<br/>";
             die();

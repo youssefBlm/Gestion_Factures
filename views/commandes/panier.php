@@ -60,6 +60,5 @@
     <div>
         <a href="index.php?c=commande&m=panierVide" class="btn btn-secondary ">Vider le panier</a>
         <a href="index.php?c=commande&m=addCommande" class="btn btn-success ">Valider le panier</a>
-        <a href="index.php?c=facture&m=generatePdf" class="btn btn-success "> le panier</a>
     </div><br><br><br>
 </main><!-- /.container -->
