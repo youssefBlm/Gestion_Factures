@@ -35,6 +35,10 @@ if (isset($_POST['choix'])) {
             </p>
             <input type="hidden" name="produit" value="<?php if (isset($produit['idArticle'])) echo $produit['idArticle']; ?>">
             <input class="btn btn-success btn-sm" type="submit" value="Ajouter" name="choix">
+            Prix : <?php if (isset($produit['prix_uni_TTC'])&&$produit['solde']!=0) echo '<s style="color: red;">'.$produit['prix_uni_TTC']." € </s> ".$produit['prix_TTC']." €"; 
+            
+            else echo $produit['prix_TTC']." € "; 
+            ?> 
           </form><br>
         </div>
 

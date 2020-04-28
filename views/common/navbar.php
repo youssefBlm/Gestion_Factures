@@ -98,17 +98,17 @@ if (!isset($_SESSION["Loged"])) {
      <div id="collapseArchive" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
-         <a class="collapse-item" href="index.php?c=commande&m=addCommande">Ajouter une commande</a>
+         <a class="collapse-item" href="index.php?c=commande&m=commandePage">Ajouter une commande</a>
          <a class="collapse-item" href="index.php?c=produit&m=listOfProduits">Liste des commandes</a>
        </div>
      </div>
    </li>
    <li class="nav-item">
-     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArchive" aria-expanded="true" aria-controls="collapseArchive">
+     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArchie" aria-expanded="true" aria-controls="collapseArchive">
        <i class="fas fa-clipboard"></i>
        <span>Soldes et Remises</span>
      </a>
-     <div id="collapseArchive" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+     <div id="collapseArchie" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Actions :</h6>
          <a class="collapse-item" href="/AppMvc/archive/listInterventionValide">Liste des Interventions</a>

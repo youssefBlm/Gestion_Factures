@@ -1,44 +1,42 @@
 <main role="main" class="container">
     <div class="starter-template">
         <br>
-        <h1>Ajout d'un Client</h1>
+        <h1>Ajout d'une commande</h1>
     </div>
     <br><br><br>
-    <form action="index.php?c=client&m=addClient" method="post">
+    <form action="index.php?c=commande&m=addLivraison" method="post">
         <div class="col mb-6" style="width: 450px">
             <div class="row">
-                <p>Nom : <input type="text" class="form-control" name="nom" /></p>&nbsp;&nbsp;&nbsp;
-                <p>Prenom : <input type="text" class="form-control" name="prenom"></p>
+            <p>Nom et Prenom du client : <select name="client" id="client-select">
+                    <option value="NULL"></option>
+                    <?php foreach ($clientslist as $client) { ?>
+                        <option value=<?php echo $client['idClient']; ?>><?php echo $client['nom']." ". $client['prenom']; ?></option>
+
+                    <?php } ?>
+
+                </select>
+            </p><br><br>
 
             </div>
             <div class="row">
                 <p>Téléphone : <input type="text" class="form-control" name="tele" /></p>&nbsp;&nbsp;&nbsp;
                 <p>E-mail : <input type="text" class="form-control" name="mail" /></p>
 
-            </div>
-            <p>Sexe :
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" id="feminin" name="sexe" value="feminin" checked>
-                <label for="feminin">feminin</label>
+            </div><br>
+            <p>Commande :<br>
+               
+                <input style="margin-left: 150px" type="radio"  name="mode" value="emporter" checked>
+                <label for="emporter">à Emporter</label><br>
 
 
 
-                <input type="radio" id="masculin" name="sexe" value="masculin">
-                <label for="masculin">masculin</label>
+                <input style="margin-left: 150px" type="radio" name="mode" value="livraison">
+                <label for="livraison">En Livraison</label>
 
             </p>
-            <p>Date de Naissance : <input type="date" class="form-control" name="naissance" /></p>
-            <p>Adresse : <input type="texte" class="form-control" name="addr" /></p>
-            <p>Code Postal : <select name="postal" id="status-select">
-                    <option value="NULL"></option>
-                    <?php foreach ($codesPostaux as $codePostal) { ?>
-                        <option value=<?php echo $codePostal['CodePostale']; ?>><?php echo $codePostal['CodePostale']; ?></option>
-
-                    <?php } ?>
-
-                </select>
-            </p>
-            <p><input class="btn btn-success btn-sm" type="submit" value="OK"></p>
+            <p>Code de la remise (s'elle existe): <input type="texte" class="form-control" name="remise" /></p>
+            
+            <p><input class="btn btn-success btn-sm" type="submit" name="valide" value="OK"></p>
 
         </div>
     </form>

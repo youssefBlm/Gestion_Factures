@@ -99,5 +99,14 @@ INSERT INTO `solde_article` (`idSolde_Article`, `lib_Solde`, `date_Debut_Solde`,
 INSERT INTO `article` (`idArticle`, `lib_Article`, `description`, `image_Article`, `qte_Stock`, `date_Ajout`, `prix_Unitaire_HT`, `montant_TVA`, `idMarque`, `idSous_Categorie`, `idSolde_Article`, `idCategorie`, `idFournisseur`) VALUES
  (1, 'Produit_N001', NULL, NULL, '2000', '2020-04-17', '10', '0.2', '2', '1', '1', '2', '1'),
  (2, 'Produit_N002', NULL, NULL, '2000', '2020-04-17', '10', '0.2', '2', '1', '2', '2', '1');
+ 
+ INSERT INTO `magasin` (`idMagasin`, `lib_Magasin`, `numero_Tel`, `e_mail`, `idAdresse`) VALUES 
+ (NULL, 'Magasin001_MULHOUSE', '0706060606', 'magasin001mulhouse@gmail.com', '1'),
+(NULL, 'Magasin002_MULHOUSE', '0706060606', 'magasin002mulhouse@gmail.com', '1'),
+(NULL, 'Magasin003_BRUNSTTAT', '0706060606', 'magasin003mulhouse@gmail.com', '1'),
+(NULL, 'Magasin004_PARIS', '0706060606', 'magasin004mulhouse@gmail.com', '1'),
+(NULL, 'Magasin005_MONTPELLIER', '0706060606', 'magasin005mulhouse@gmail.com', '1'),
+(NULL, 'Magasin006_TOULOUSE', '0706060606', 'magasin006mulhouse@gmail.com', '1'),
+(NULL, 'Magasin007_DIDENHEIM', '0706060606', 'magasin007mulhouse@gmail.com', '1');
 
 

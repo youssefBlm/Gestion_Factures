@@ -8,7 +8,7 @@ class loginController
     public function liste()
     {
         require_once MODELS . DS . 'employeeM.php';
-        $m = new EmployeeModel();
+      //  $m = new EmployeeModel();
         $employees = $m->listAll();
         // Affichage au sein de la vue des données récupérées via le model
         require_once CLASSES . DS . 'view.php';

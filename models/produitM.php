@@ -79,6 +79,8 @@ class ProduitModel
             die();
         }
     }
+
+   
     public function insertClient($client)
     {
         $sql = "    INSERT INTO client(nom, prenom, numero_Tel, e_mail, sexe, date_Naissance, idAdresse)
