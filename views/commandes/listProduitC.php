@@ -11,7 +11,7 @@ if (isset($_POST['choix'])) {
 <main role="main" class="container">
   <div class="starter-template">
     <br>
-    <h1>Affichage des Produits</h1>
+    <h1>Ajouter les produits au panier</h1>
   </div>
 
 

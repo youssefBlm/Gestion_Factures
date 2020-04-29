@@ -28,7 +28,7 @@ class loginController
         if (!$user) {
 
             // redirection vers header avec un msg d'erreur
-            $msg = "nta hmar";
+            $msg = "Identifiant ou mot de passe incorrect";
 
             header("Location:views/login/login.php?msg=" . $msg);
         } else {
